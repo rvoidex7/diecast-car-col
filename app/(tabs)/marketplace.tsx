@@ -1,4 +1,5 @@
-import { View, Text, FlatList, SafeAreaView } from 'react-native';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
+import ListingCard from '../../components/ListingCard';
 
 // Note: As per instructions, theme constants are not used directly.
 // We rely on NativeWind classes which are configured in global.css
@@ -43,21 +44,20 @@ const MarketplaceScreen = () => {
   return (
     <SafeAreaView className="flex-1 bg-lightWhite">
       <View className="p-4">
-        <Text className="text-2xl font-bold text-secondary">
-          Pazaryeri
-        </Text>
-
         <FlatList
           data={mockListings}
           keyExtractor={(item) => item.id}
-          ListHeaderComponent={<View className="h-4" />}
+          ListHeaderComponent={
+            <>
+              {/* SearchBar entegrasyonundan sonra burası zaten dolu olabilir, ona dokunma */}
+              <Text className="text-2xl font-bold text-secondary">Pazaryeri</Text>
+              {/* ... SearchBar component'i burada olabilir ... */}
+            </>
+          }
           renderItem={({ item }) => (
-            <View className="bg-white p-3 rounded-lg mb-4 shadow-md">
-              <Text className="font-bold text-lg">{item.name}</Text>
-              <Text className="text-primary">Fiyat: {item.price}</Text>
-              <Text>Satıcı: {item.seller}</Text>
-            </View>
+            <ListingCard listing={item} />
           )}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </SafeAreaView>
