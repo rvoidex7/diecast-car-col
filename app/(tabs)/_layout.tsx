@@ -56,6 +56,13 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="marketplace"
+        options={{
+          title: 'Pazaryeri',
+          tabBarIcon: ({ color }) => <TabBarIcon name="shopping-bag" color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
