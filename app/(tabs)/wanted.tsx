@@ -1,9 +1,9 @@
 import { Text, View } from 'react-native';
 
-export default function ProfileScreen() {
+export default function WantedScreen() {
   return (
     <View>
-      <Text>Profil Ekranı</Text>
+      <Text>Arananlar Ekranı</Text>
     </View>
   );
 }
