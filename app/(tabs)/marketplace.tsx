@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FlatList, SafeAreaView, Text, View } from 'react-native';
 import ListingCard from '../../components/ListingCard';
 import SearchBar from '../../components/SearchBar';
@@ -40,8 +40,6 @@ const mockListings = [
 ];
 
 const MarketplaceScreen = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-
   return (
     <SafeAreaView className="flex-1" style={{ backgroundColor: COLORS.lightWhite }}>
       <FlatList
