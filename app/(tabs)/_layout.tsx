@@ -1,6 +1,6 @@
-import { Ionicons } from '@expo/vector-icons';
-import { Tabs } from 'expo-router';
 import React from 'react';
+import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../../constants/theme';
 
 export default function TabLayout() {
@@ -10,14 +10,20 @@ export default function TabLayout() {
         headerShown: false,
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: COLORS.gray,
+        // İki versiyondaki stilleri birleştirelim:
         tabBarStyle: {
           backgroundColor: COLORS.white,
+          borderTopWidth: 1,
+          borderTopColor: COLORS.gray2,
+          height: 60,
+          paddingBottom: 5,
         },
         tabBarLabelStyle: {
           fontWeight: 'bold',
         },
       }}
     >
+      {/* Sekme yapısı olarak en temiz ve doğru olan versiyonu alıyoruz: */}
       <Tabs.Screen
         name="marketplace"
         options={{
@@ -37,7 +43,6 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        // Bu dosya henüz oluşturulmadı ama yerini hazırlıyoruz.
         name="wanted"
         options={{
           title: 'Arananlar',
@@ -47,20 +52,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        // Bu dosya henüz oluşturulmadı ama yerini hazırlıyoruz.
         name="profile"
         options={{
           title: 'Profil',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle-outline" size={size} color={color} />
           ),
-        }}
-      />
-      <Tabs.Screen
-        name="marketplace"
-        options={{
-          title: 'Pazaryeri',
-          tabBarIcon: ({ color }) => <TabBarIcon name="shopping-bag" color={color} />,
         }}
       />
     </Tabs>

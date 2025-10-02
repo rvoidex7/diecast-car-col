@@ -1,5 +1,4 @@
 import { View, Text, FlatList, SafeAreaView } from 'react-native';
-import { Link } from 'expo-router';
 
 // Note: As per instructions, theme constants are not used directly.
 // We rely on NativeWind classes which are configured in global.css
