@@ -1,31 +1,40 @@
-import { StyleSheet } from 'react-native';
+import { View, Text, FlatList, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import { COLORS, SIZES } from '../../constants/theme';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+const myMockCollection = [
+  { id: 'c1', name: 'Pagani Zonda R', imageUrl: 'https://via.placeholder.com/150/FF6347/FFFFFF?text=Zonda' },
+  { id: 'c2', name: 'Volkswagen Beetle', imageUrl: 'https://via.placeholder.com/150/444262/FFFFFF?text=Beetle' },
+  { id: 'c3', name: 'Ford Mustang GT', imageUrl: 'https://via.placeholder.com/150/FF7754/FFFFFF?text=Mustang' },
+  { id: 'c4', name: 'Lamborghini Sesto Elemento', imageUrl: 'https://via.placeholder.com/150/83829A/FFFFFF?text=Sesto' },
+  { id: 'c5', name: 'McLaren F1', imageUrl: 'https://via.placeholder.com/150/C1C0C8/000000?text=McLaren' },
+  { id: 'c6', name: 'Audi RS 6 Avant', imageUrl: 'https://via.placeholder.com/150/000000/FFFFFF?text=Audi' },
+];
 
-export default function TabTwoScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
-    </View>
+const MyCollectionScreen = () => {
+  const renderItem = ({ item }) => (
+    <TouchableOpacity className="flex-1 bg-white rounded-lg shadow-md m-2 p-2 items-center">
+      <Image
+        source={{ uri: item.imageUrl }}
+        className="w-full h-24 rounded-md"
+        resizeMode="cover"
+      />
+      <Text className="mt-2 font-semibold text-center text-secondary">{item.name}</Text>
+    </TouchableOpacity>
   );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+  return (
+    <SafeAreaView className="flex-1 bg-lightWhite">
+      <View className="p-4">
+        <Text className="text-2xl font-bold text-secondary mb-4">Koleksiyonum</Text>
+        <FlatList
+          data={myMockCollection}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          numColumns={2}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default MyCollectionScreen;
