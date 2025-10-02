@@ -1,5 +1,4 @@
-import { View, Text, FlatList, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import { COLORS, SIZES } from '../../constants/theme';
+import { FlatList, Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 
 const myMockCollection = [
   { id: 'c1', name: 'Pagani Zonda R', imageUrl: 'https://via.placeholder.com/150/FF6347/FFFFFF?text=Zonda' },
@@ -11,14 +10,16 @@ const myMockCollection = [
 ];
 
 const MyCollectionScreen = () => {
-  const renderItem = ({ item }) => (
-    <TouchableOpacity className="flex-1 bg-white rounded-lg shadow-md m-2 p-2 items-center">
+  type CollectionItem = (typeof myMockCollection)[number];
+
+  const renderItem = ({ item }: { item: CollectionItem }) => (
+    <TouchableOpacity className="m-2 flex-1 items-center rounded-2xl bg-white p-3 shadow-sm">
       <Image
         source={{ uri: item.imageUrl }}
         className="w-full h-24 rounded-md"
         resizeMode="cover"
       />
-      <Text className="mt-2 font-semibold text-center text-secondary">{item.name}</Text>
+      <Text className="mt-2 text-center text-sm font-semibold text-secondary">{item.name}</Text>
     </TouchableOpacity>
   );
 

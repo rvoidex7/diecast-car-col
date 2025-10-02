@@ -2,7 +2,6 @@ import React from 'react';
 import { FlatList, SafeAreaView, Text, View } from 'react-native';
 import ListingCard from '../../components/ListingCard';
 import SearchBar from '../../components/SearchBar';
-import { COLORS } from '../../constants/theme';
 
 const mockListings = [
   {
@@ -41,12 +40,13 @@ const mockListings = [
 
 const MarketplaceScreen = () => {
   return (
-    <SafeAreaView className="flex-1" style={{ backgroundColor: COLORS.lightWhite }}>
+    <SafeAreaView className="flex-1 bg-lightWhite">
       <FlatList
         data={mockListings}
         keyExtractor={(item) => item.id}
+        contentContainerStyle={{ paddingBottom: 24 }}
         ListHeaderComponent={
-          <View className="px-4 pt-4">
+          <View className="gap-3 px-4 pt-6 pb-4">
             <Text className="mb-2 text-3xl font-bold text-secondary">Pazaryeri</Text>
             <SearchBar
               placeholder="Model, seri veya satıcı ara..."
