@@ -1,37 +1,38 @@
-import { FlatList, Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { View, Text, FlatList, SafeAreaView, Image, Dimensions } from 'react-native';
+import { mockCars } from '../../data/mockCars';
+import { Car } from '../../types';
+import { COLORS } from '../../constants/theme';
 
-const myMockCollection = [
-  { id: 'c1', name: 'Pagani Zonda R', imageUrl: 'https://via.placeholder.com/150/FF6347/FFFFFF?text=Zonda' },
-  { id: 'c2', name: 'Volkswagen Beetle', imageUrl: 'https://via.placeholder.com/150/444262/FFFFFF?text=Beetle' },
-  { id: 'c3', name: 'Ford Mustang GT', imageUrl: 'https://via.placeholder.com/150/FF7754/FFFFFF?text=Mustang' },
-  { id: 'c4', name: 'Lamborghini Sesto Elemento', imageUrl: 'https://via.placeholder.com/150/83829A/FFFFFF?text=Sesto' },
-  { id: 'c5', name: 'McLaren F1', imageUrl: 'https://via.placeholder.com/150/C1C0C8/000000?text=McLaren' },
-  { id: 'c6', name: 'Audi RS 6 Avant', imageUrl: 'https://via.placeholder.com/150/000000/FFFFFF?text=Audi' },
-];
+const { width } = Dimensions.get('window');
+const cardWidth = width / 2 - 24; // 2 columns with padding
+
+const CollectionCard = ({ item }: { item: Car }) => (
+  <View className="bg-lightWhite rounded-lg p-3 shadow-sm" style={{ width: cardWidth, marginBottom: 16 }}>
+    <Image
+      source={{ uri: item.photoUrl }}
+      className="w-full h-24 rounded-md"
+      resizeMode="cover"
+    />
+    <Text className="text-secondary font-bold mt-2 text-sm" numberOfLines={1}>
+      {item.name}
+    </Text>
+    <Text className="text-gray text-xs">{item.series}</Text>
+  </View>
+);
 
 const MyCollectionScreen = () => {
-  type CollectionItem = (typeof myMockCollection)[number];
-
-  const renderItem = ({ item }: { item: CollectionItem }) => (
-    <TouchableOpacity className="m-2 flex-1 items-center rounded-2xl bg-white p-3 shadow-sm">
-      <Image
-        source={{ uri: item.imageUrl }}
-        className="w-full h-24 rounded-md"
-        resizeMode="cover"
-      />
-      <Text className="mt-2 text-center text-sm font-semibold text-secondary">{item.name}</Text>
-    </TouchableOpacity>
-  );
-
   return (
-    <SafeAreaView className="flex-1 bg-lightWhite">
-      <View className="p-4">
-        <Text className="text-2xl font-bold text-secondary mb-4">Koleksiyonum</Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+      <View className="flex-1 p-4">
+        <Text className="text-secondary text-2xl font-bold mb-4">Koleksiyonum</Text>
         <FlatList
-          data={myMockCollection}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
+          data={mockCars}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <CollectionCard item={item} />}
           numColumns={2}
+          columnWrapperStyle={{ justifyContent: 'space-between' }}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </SafeAreaView>

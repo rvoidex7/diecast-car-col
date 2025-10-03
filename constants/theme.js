@@ -1,6 +1,6 @@
-export const COLORS = {
-  primary: '#FF6347',    // Turuncu-Kırmızı (Hot Wheels Rengi gibi)
-  secondary: '#444262',  // Koyu Gri
+const COLORS = {
+  primary: '#FF6347', // Turuncu-Kırmızı
+  secondary: '#444262', // Koyu Gri
   tertiary: '#FF7754',
 
   gray: '#83829A',
@@ -8,10 +8,9 @@ export const COLORS = {
 
   white: '#F3F4F8',
   lightWhite: '#FAFAFC',
-  black: '#000000',
 };
 
-export const SIZES = {
+const SIZES = {
   xSmall: 10,
   small: 12,
   medium: 16,
@@ -19,3 +18,5 @@ export const SIZES = {
   xLarge: 24,
   xxLarge: 32,
 };
+
+module.exports = { COLORS, SIZES };
