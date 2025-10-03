@@ -3,7 +3,7 @@ export interface Car {
   name: string;
   series: string;
   year: string;
-  photoUrl: string;
+  photo: any; // Using 'any' for require() return type
 }
 
 export interface Listing {

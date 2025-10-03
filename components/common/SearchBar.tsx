@@ -17,7 +17,10 @@ const SearchBar = ({
   const [query, setQuery] = React.useState('');
 
   return (
-    <View className="flex-row items-center justify-between bg-lightWhite p-3 rounded-lg shadow-sm my-4">
+    <View className="flex-row items-center bg-lightWhite rounded-lg shadow-sm my-4 p-2">
+      <TouchableOpacity onPress={() => onSearch && onSearch(query)} className="p-2">
+        <Ionicons name="search-outline" size={SIZES.large} color={COLORS.gray} />
+      </TouchableOpacity>
       <TextInput
         className="flex-1 h-10 text-secondary text-base"
         placeholder={placeholder}
@@ -26,11 +29,8 @@ const SearchBar = ({
         onSubmitEditing={() => onSearch && onSearch(query)}
         placeholderTextColor={COLORS.gray}
       />
-      <TouchableOpacity onPress={() => onSearch && onSearch(query)} className="p-2">
-        <Ionicons name="search-outline" size={SIZES.large} color={COLORS.secondary} />
-      </TouchableOpacity>
       {onFilterPress && (
-        <TouchableOpacity onPress={onFilterPress} className="p-2 ml-2">
+        <TouchableOpacity onPress={onFilterPress} className="p-2">
           <Ionicons name="options-outline" size={SIZES.large} color={COLORS.secondary} />
         </TouchableOpacity>
       )}

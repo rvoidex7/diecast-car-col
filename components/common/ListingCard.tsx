@@ -14,32 +14,33 @@ const ListingCard = ({ listing, onPress }: ListingCardProps) => {
 
   return (
     <TouchableOpacity
-      className="flex-row bg-lightWhite p-4 rounded-xl shadow-md mb-4"
+      className="flex-row bg-lightWhite p-3 rounded-lg shadow-sm mb-4"
       onPress={onPress}
     >
-      {/* Image */}
+      {/* Resim Alanı */}
       <Image
-        source={{ uri: car.photoUrl }}
-        className="w-24 h-24 rounded-lg"
+        source={car.photo}
+        className="w-28 h-28 rounded-md"
         resizeMode="cover"
       />
 
-      {/* Info */}
+      {/* Bilgi Alanı */}
       <View className="flex-1 ml-4 justify-between">
+        {/* Model ve Seri */}
         <View>
-          <Text className="text-secondary font-bold text-lg" numberOfLines={1}>
+          <Text className="text-secondary font-bold text-base" numberOfLines={2}>
             {car.name}
           </Text>
-          <Text className="text-gray text-sm">{car.series}</Text>
+          <Text className="text-gray-600 text-xs mt-1">{car.series}</Text>
         </View>
 
-        <View className="flex-row items-center mt-2">
-          <Ionicons name="person-circle-outline" size={SIZES.small} color={COLORS.gray} />
-          <Text className="text-gray ml-1 text-xs">{sellerUsername}</Text>
-        </View>
-
-        <View>
-          <Text className="text-primary font-bold text-xl mt-1">
+        {/* Satıcı ve Fiyat */}
+        <View className="mt-2">
+          <View className="flex-row items-center">
+            <Ionicons name="person-circle-outline" size={SIZES.small} color={COLORS.gray} />
+            <Text className="text-gray-700 ml-1 text-xs">{sellerUsername}</Text>
+          </View>
+          <Text className="text-primary font-bold text-lg mt-1">
             {type === 'sale' ? `${price} TL` : 'Takas'}
           </Text>
         </View>
