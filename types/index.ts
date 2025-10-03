@@ -24,13 +24,13 @@ export interface Listing {
 export interface CollectionItem {
   id: string;
   car: Car;
-  addedAt: string;
-  condition: 'Sıfır' | 'Kutulu' | 'İkinci El';
+  acquiredAt: string;
+  purchasePrice?: number;
   isForSale: boolean;
   isForTrade: boolean;
-  favorite: boolean;
-  purchasePrice?: number;
+  condition: 'Sıfır' | 'Kutulu' | 'İkinci El';
   notes?: string;
+  favorite?: boolean;
 }
 
 export interface WantedEntry {

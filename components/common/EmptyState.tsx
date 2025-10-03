@@ -1,23 +1,19 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { COLORS, SIZES } from '../../constants/theme';
 
 interface EmptyStateProps {
   title: string;
-  description: string;
-  icon?: keyof typeof Ionicons.glyphMap;
+  description?: string;
 }
 
-const EmptyState = ({
-  title,
-  description,
-  icon = 'clipboard-outline',
-}: EmptyStateProps) => {
+const EmptyState: React.FC<EmptyStateProps> = ({ title, description }) => {
   return (
-    <View className="items-center justify-center py-12 px-6 bg-lightWhite rounded-3xl">
-      <Ionicons name={icon} size={40} color="#C1C0C8" />
+    <View className="items-center justify-center py-12">
+      <Ionicons name="car-outline" size={SIZES.xxLarge} color={COLORS.gray2} />
       <Text className="text-secondary font-semibold text-lg mt-4">{title}</Text>
-      <Text className="text-gray text-center mt-2">{description}</Text>
+      {description && <Text className="text-gray mt-2 text-center px-4">{description}</Text>}
     </View>
   );
 };

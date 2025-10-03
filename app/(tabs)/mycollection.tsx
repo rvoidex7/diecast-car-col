@@ -8,7 +8,6 @@ import {
     Image,
     SafeAreaView,
     ScrollView,
-    StatusBar,
     Text,
     TouchableOpacity,
     View,
@@ -97,7 +96,7 @@ const MyCollectionScreen = () => {
       >
         <View className="relative">
           <Image
-            source={item.car.photo}
+            source={{ uri: item.car.photoUrl }}
             className="w-full h-36 rounded-2xl"
             resizeMode="cover"
           />
@@ -194,7 +193,6 @@ const MyCollectionScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <StatusBar barStyle="dark-content" />
       <FlatList
         data={filteredCollection}
         keyExtractor={(item) => item.id}

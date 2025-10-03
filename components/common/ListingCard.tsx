@@ -21,7 +21,7 @@ const ListingCard = ({ listing, onPress }: ListingCardProps) => {
     >
       <View className="relative">
         <Image
-          source={car.photo}
+          source={{ uri: car.photoUrl }}
           className="w-full h-40"
           resizeMode="cover"
         />

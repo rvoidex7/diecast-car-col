@@ -7,7 +7,6 @@ import {
     Modal,
     SafeAreaView,
     ScrollView,
-    StatusBar,
     Switch,
     Text,
     TextInput,
@@ -80,7 +79,7 @@ const WantedScreen = () => {
           onPress={() => navigateToCar(item.car.id)}
           activeOpacity={0.85}
         >
-          <Image source={item.car.photo} className="w-16 h-16 rounded-2xl" resizeMode="cover" />
+          <Image source={{ uri: item.car.photoUrl }} className="w-16 h-16 rounded-2xl" resizeMode="cover" />
           <View className="ml-4 flex-1">
             <Text className="text-secondary font-bold text-base" numberOfLines={1}>
               {item.car.name}
@@ -118,7 +117,7 @@ const WantedScreen = () => {
                   onPress={() => navigateToListing(listing.listingId)}
                 >
                   <Image
-                    source={listing.car.photo}
+                    source={{ uri: listing.car.photoUrl }}
                     className="w-36 h-24 rounded-2xl"
                     resizeMode="cover"
                   />
@@ -139,7 +138,6 @@ const WantedScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <StatusBar barStyle="dark-content" />
       <FlatList
         data={wanted}
         keyExtractor={(item) => item.id}
@@ -198,7 +196,7 @@ const WantedScreen = () => {
                     }`}
                     onPress={() => setSelectedCarId(car.id)}
                   >
-                    <Image source={car.photo} className="w-12 h-12 rounded-xl" />
+                    <Image source={{ uri: car.photoUrl }} className="w-12 h-12 rounded-xl" />
                     <View className="ml-3 flex-1">
                       <Text className="text-secondary font-semibold" numberOfLines={1}>
                         {car.name}

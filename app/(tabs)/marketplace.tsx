@@ -10,7 +10,6 @@ import {
     Text,
     TouchableOpacity,
     View,
-    StatusBar,
 } from 'react-native';
 import EmptyState from '../../components/common/EmptyState';
 import ListingCard from '../../components/common/ListingCard';
@@ -73,7 +72,6 @@ const MarketplaceScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <StatusBar barStyle="dark-content" />
       <FlatList
         data={filteredListings}
         keyExtractor={(item) => item.listingId}
@@ -85,7 +83,7 @@ const MarketplaceScreen = () => {
         ListHeaderComponent={(
           <View>
             <ImageBackground
-              source={require('../../assets/images/marketplace-bg.png')}
+              source={{ uri: 'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=800' }}
               className="w-full rounded-3xl overflow-hidden mb-6"
             >
               <View className="bg-black/50 p-6">

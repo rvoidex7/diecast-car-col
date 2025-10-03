@@ -8,7 +8,6 @@ import {
     Text,
     TouchableOpacity,
     View,
-    StatusBar,
 } from 'react-native';
 import Badge from '../../components/common/Badge';
 import ListingCard from '../../components/common/ListingCard';
@@ -32,13 +31,12 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <StatusBar barStyle="light-content" />
       <ScrollView contentContainerStyle={{ paddingBottom: 48 }}>
         <View className="bg-secondary rounded-b-3xl px-6 pt-12 pb-10">
           <View className="items-center">
             <View className="relative">
               <Image
-                source={require('../../assets/images/profile.png')}
+                source={{ uri: 'https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=300' }}
                 className="w-28 h-28 rounded-full border-4 border-white"
               />
               <View className="absolute bottom-1 right-1 bg-primary rounded-full p-1.5">
@@ -125,7 +123,7 @@ const ProfileScreen = () => {
                     onPress={() => navigateToCar(item.car.id)}
                   >
                     <Image
-                      source={item.car.photo}
+                      source={{ uri: item.car.photoUrl }}
                       className="w-40 h-28 rounded-2xl"
                       resizeMode="cover"
                     />

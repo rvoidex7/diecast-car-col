@@ -32,7 +32,7 @@ export const mockCars: Car[] = [
     year: '2021',
     photo: require('../assets/images/cars/4.png'),
   },
-    {
+  {
     id: '5',
     name: 'Bugatti Chiron',
     series: 'HW Exotics',
@@ -45,5 +45,33 @@ export const mockCars: Car[] = [
     series: 'J-Imports',
     year: '2021',
     photo: require('../assets/images/cars/6.png'),
+  },
+  {
+    id: '7',
+    name: 'Ferrari F40 Competizione',
+    series: 'Legends of Speed',
+    year: '2023',
+    photoUrl: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    id: '8',
+    name: 'McLaren Senna GTR',
+    series: 'Speed Champions',
+    year: '2022',
+    photoUrl: 'https://images.pexels.com/photos/2100194/pexels-photo-2100194.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    id: '9',
+    name: 'Mercedes-AMG One',
+    series: 'Hypercar Collection',
+    year: '2024',
+    photoUrl: 'https://images.pexels.com/photos/188777/pexels-photo-188777.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    id: '10',
+    name: 'Audi Quattro S1',
+    series: 'Rally Legends',
+    year: '2021',
+    photoUrl: 'https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ];
