@@ -1,25 +1,18 @@
-const nativewind = require('nativewind/tailwind/css');
-
 /** @type {import('tailwindcss').Config} */
+const { COLORS } = require('./constants/theme');
+
 module.exports = {
   content: [
     "./app/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}"
   ],
-  presets: [nativewind],
   theme: {
     extend: {
       colors: {
-        primary: '#FF6347',
-        secondary: '#444262',
-        tertiary: '#FF7754',
-        gray: '#83829A',
-        gray2: '#C1C0C8',
-        lightWhite: '#FAFAFC',
+        ...COLORS,
         black: '#000000',
       },
     },
   },
-  plugins: [],
-}
-
+  plugins: [], // This should be empty for NativeWind v4 with the Babel plugin
+};
