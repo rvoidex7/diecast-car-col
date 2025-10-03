@@ -61,7 +61,7 @@ const SearchBar = ({
         <Ionicons name="search-outline" size={SIZES.large} color={COLORS.secondary} />
       </TouchableOpacity>
       {onFilterPress && (
-        <TouchableOpacity onPress={onFilterPress} className="p-2 ml-2">
+        <TouchableOpacity onPress={onFilterPress} className="p-2">
           <Ionicons name="options-outline" size={SIZES.large} color={COLORS.secondary} />
         </TouchableOpacity>
       )}

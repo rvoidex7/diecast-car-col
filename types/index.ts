@@ -3,7 +3,7 @@ export interface Car {
   name: string;
   series: string;
   year: string;
-  photoUrl: string;
+  photo: any; // Yerel resimler için require() dönüş tipi
 }
 
 export interface Listing {

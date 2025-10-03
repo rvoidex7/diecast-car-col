@@ -5,7 +5,7 @@ export const mockListings: Listing[] = [
   {
     listingId: 'l1',
     sellerUsername: 'koleksiyoner123',
-    car: mockCars[0], // Porsche 911 GT3 RS
+    car: mockCars[0],
     type: 'sale',
     price: 150,
     condition: 'Kutulu',
@@ -19,7 +19,7 @@ export const mockListings: Listing[] = [
   {
     listingId: 'l2',
     sellerUsername: 'garaj_ustasi',
-    car: mockCars[1], // Nissan Skyline GT-R (R34)
+    car: mockCars[1],
     type: 'trade',
     price: 'Takasa Özel',
     condition: 'İkinci El',
@@ -32,7 +32,7 @@ export const mockListings: Listing[] = [
   {
     listingId: 'l3',
     sellerUsername: 'diecast_dunyasi',
-    car: mockCars[2], // Lamborghini Countach
+    car: mockCars[2],
     type: 'sale',
     price: 250,
     condition: 'Sıfır',
@@ -45,7 +45,7 @@ export const mockListings: Listing[] = [
   {
     listingId: 'l4',
     sellerUsername: 'hiz_tutkunu',
-    car: mockCars[4], // Bugatti Chiron
+    car: mockCars[4],
     type: 'sale',
     price: 300,
     condition: 'Kutulu',
@@ -58,7 +58,7 @@ export const mockListings: Listing[] = [
   {
     listingId: 'l5',
     sellerUsername: 'garaj_ustasi',
-    car: mockCars[5], // Toyota Supra
+    car: mockCars[5],
     type: 'trade',
     price: 'Takas',
     condition: 'İkinci El',
